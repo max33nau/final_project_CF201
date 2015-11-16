@@ -1,9 +1,9 @@
-body {
+body {T
     background-color:orange;
 }
 
 #container {
-  width: 640px;
+  width: 320px;
   height: auto;
   outline: none;
   float: none;
@@ -17,3 +17,22 @@ div, img {
     float: left;
 }
 
+.redBrick {
+  z-index: 1;
+}
+
+.floorTile {
+  z-index: 1;
+}
+
+.winningSpot {
+  z-index: 1;
+}
+
+.woodenCrate {
+  z-index: 2;
+}
+
+.sprite {
+  z-index: 2;
+}
