@@ -143,6 +143,12 @@ var BOXER_GAME_MODULE = (function() {
 				} else {
 					return;
 				}
+			}	else if (my.game.coordinates[currentLocationX-1][currentLocationY].tile == "dots") {
+ 				spriteLocation[0]-=1;
+ 				my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
+ 				my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
+ 				my.game.coordinates[currentLocationX][currentLocationY].tile = "dots";
+ 				counter++;
 			} else {
 				return;
 			}
@@ -190,6 +196,12 @@ var BOXER_GAME_MODULE = (function() {
 					} else {
 						return;
 					}
+				}	else if (my.game.coordinates[currentLocationX+1][currentLocationY].tile == "dots") {
+					spriteLocation[0]+=1;
+					my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
+					my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
+					my.game.coordinates[currentLocationX][currentLocationY].tile = "dots";
+					counter++;
 				} else {
 					return;
 				}
@@ -237,6 +249,12 @@ var BOXER_GAME_MODULE = (function() {
 						} else {
 							return;
 						}
+					}	else if (my.game.coordinates[currentLocationX][currentLocationY+1].tile == "dots") {
+						spriteLocation[1]+=1;
+						my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
+						my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
+						my.game.coordinates[currentLocationX][currentLocationY].tile = "dots";
+						counter++;
 					} else {
 						return;
 					}
@@ -284,6 +302,12 @@ var BOXER_GAME_MODULE = (function() {
 							} else {
 								return;
 							}
+						}	else if (my.game.coordinates[currentLocationX][currentLocationY-1].tile == "dots") {
+							spriteLocation[1]-=1;
+							my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
+							my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
+							my.game.coordinates[currentLocationX][currentLocationY].tile = "dots";
+							counter++;
 						} else {
 							return;
 						}
