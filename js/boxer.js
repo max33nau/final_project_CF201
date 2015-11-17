@@ -23,8 +23,9 @@ var wallURL = "img/RedBrick.png";
 var floorURL = "img/FloorTile.png";
 var crateURL = "img/WoodenCrate.png";
 var dotsURL  = "img/DotTile.png";
-var spriteURL = "img/sprite.png"
+var spriteURL = "img/sprite.png";
 var spriteLocation = levelData[0].sprite[0];
+var counter = 1;
 
 
 // We want our coordinates to be 4-digit strings, so
@@ -108,6 +109,7 @@ var BOXER_GAME_MODULE = (function() {
 			my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
 			my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
 			my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
+			counter++;
 		} else if (my.game.coordinates[currentLocationX-1][currentLocationY].tile == "crate") {
 				crateLocationX = currentLocationX-1;
 				crateLocationY = currentLocationY;
@@ -119,6 +121,7 @@ var BOXER_GAME_MODULE = (function() {
 					my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 					my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 					my.game.coordinates[currentLocationX-1][currentLocationY].$div.find('img').first().remove();
+					counter++;
 				} else if (my.game.coordinates[currentLocationX-2][currentLocationY].tile == "dots") {
 					spriteLocation[0]-=1;
 					crateLocationX-=1;
@@ -127,6 +130,7 @@ var BOXER_GAME_MODULE = (function() {
 					my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 					my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 					my.game.coordinates[currentLocationX-1][currentLocationY].$div.find('img').first().remove();
+					counter++;
 				} else if (my.game.coordinates[currentLocationX-1][currentLocationY].tile == "dots") {
 					spriteLocation[0]-=1;
 					crateLocationX-=1;
@@ -135,6 +139,7 @@ var BOXER_GAME_MODULE = (function() {
 					my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 					my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 					my.game.coordinates[currentLocationX-1][currentLocationY].$div.find('img').first().remove();
+					counter++;
 				} else {
 					return;
 				}
@@ -151,6 +156,7 @@ var BOXER_GAME_MODULE = (function() {
 				my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
 				my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
 				my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
+				counter++;
 			} else if (my.game.coordinates[currentLocationX+1][currentLocationY].tile == "crate") {
 					crateLocationX = currentLocationX+1;
 					crateLocationY = currentLocationY;
@@ -162,6 +168,7 @@ var BOXER_GAME_MODULE = (function() {
 						my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 						my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 						my.game.coordinates[currentLocationX+1][currentLocationY].$div.find('img').first().remove();
+						counter++;
 					} else if (my.game.coordinates[currentLocationX+2][currentLocationY].tile == "dots") {
 						spriteLocation[0]+=1;
 						crateLocationX+=1;
@@ -170,6 +177,7 @@ var BOXER_GAME_MODULE = (function() {
 						my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 						my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 						my.game.coordinates[currentLocationX+1][currentLocationY].$div.find('img').first().remove();
+						counter++;
 					} else if (my.game.coordinates[currentLocationX+1][currentLocationY].tile == "dots") {
 						spriteLocation[0]+=1;
 						crateLocationX+=1;
@@ -178,6 +186,7 @@ var BOXER_GAME_MODULE = (function() {
 						my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 						my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 						my.game.coordinates[currentLocationX+1][currentLocationY].$div.find('img').first().remove();
+						counter++;
 					} else {
 						return;
 					}
@@ -194,6 +203,7 @@ var BOXER_GAME_MODULE = (function() {
 					my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
 					my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
 					my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
+					counter++;
 				} else if (my.game.coordinates[currentLocationX][currentLocationY+1].tile == "crate") {
 						crateLocationX = currentLocationX;
 						crateLocationY = currentLocationY+1;
@@ -205,6 +215,7 @@ var BOXER_GAME_MODULE = (function() {
 							my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 							my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 							my.game.coordinates[currentLocationX][currentLocationY+1].$div.find('img').first().remove();
+							counter++;
 						} else if (my.game.coordinates[currentLocationX][currentLocationY+2].tile == "dots") {
 							spriteLocation[1]+=1;
 							crateLocationY+=1;
@@ -213,6 +224,7 @@ var BOXER_GAME_MODULE = (function() {
 							my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 							my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 							my.game.coordinates[currentLocationX][currentLocationY+1].$div.find('img').first().remove();
+							counter++;
 						} else if (my.game.coordinates[currentLocationX][currentLocationY+1].tile == "dots") {
 							spriteLocation[1]+=1;
 							crateLocationY+=1;
@@ -221,6 +233,7 @@ var BOXER_GAME_MODULE = (function() {
 							my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 							my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 							my.game.coordinates[currentLocationX][currentLocationY+1].$div.find('img').first().remove();
+							counter++;
 						} else {
 							return;
 						}
@@ -237,6 +250,7 @@ var BOXER_GAME_MODULE = (function() {
 						my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
 						my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
 						my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
+						counter++;
 					} else if (my.game.coordinates[currentLocationX][currentLocationY-1].tile == "crate") {
 							crateLocationX = currentLocationX;
 							crateLocationY = currentLocationY-1;
@@ -248,6 +262,7 @@ var BOXER_GAME_MODULE = (function() {
 								my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 								my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 								my.game.coordinates[currentLocationX][currentLocationY-1].$div.find('img').first().remove();
+								counter++;
 							} else if (my.game.coordinates[currentLocationX][currentLocationY-2].tile == "dots") {
 								spriteLocation[1]-=1;
 								crateLocationY-=1;
@@ -256,6 +271,7 @@ var BOXER_GAME_MODULE = (function() {
 								my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 								my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 								my.game.coordinates[currentLocationX][currentLocationY-1].$div.find('img').first().remove();
+								counter++;
 							} else if (my.game.coordinates[currentLocationX][currentLocationY-1].tile == "dots") {
 								spriteLocation[1]-=1;
 								crateLocationY-=1;
@@ -264,6 +280,7 @@ var BOXER_GAME_MODULE = (function() {
 								my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
 								my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
 								my.game.coordinates[currentLocationX][currentLocationY-1].$div.find('img').first().remove();
+								counter++;
 							} else {
 								return;
 							}
@@ -274,6 +291,7 @@ var BOXER_GAME_MODULE = (function() {
 
 
 		my.changelocation= function(key) {
+			console.log("The counter is : " + counter);
 		  var keyvalue = key.keyCode;
 			currentLocationX = spriteLocation[0];
 			currentLocationY = spriteLocation[1];
