@@ -24,6 +24,7 @@ var floorURL = "img/FloorTile.png";
 var crateURL = "img/WoodenCrate.png";
 var dotsURL  = "img/DotTile.png";
 var spriteURL = "img/sprite.png";
+var ondotURL = "img/ondot.png"
 var spriteLocation = levelData[0].sprite[0];
 var counter = 1;
 
@@ -79,6 +80,12 @@ var BOXER_GAME_MODULE = (function() {
 		my.addSprite = function( [x, y], tileType, tileURL) {
 			my.game.coordinates[x][y].tile = tileType;
 			$img = $( '<img src='+tileURL+'> </img>' );
+			my.game.coordinates[x][y].$div.append( $img );
+		}
+
+		my.onDot = function( [x, y], tileType, tileURL) {
+			my.game.coordinates[x][y].tile = tileType;
+			$img = $( '<img id="ondot" src='+tileURL+'> </img>' );
 			my.game.coordinates[x][y].$div.append( $img );
 		}
 
@@ -181,7 +188,7 @@ var BOXER_GAME_MODULE = (function() {
 						my.addSprite([spriteLocation[0],spriteLocation[1]],"sprite",spriteURL);
 						my.game.coordinates[currentLocationX][currentLocationY].$div.find('img').remove();
 						my.game.coordinates[currentLocationX][currentLocationY].tile = "floor";
-						my.addCrates([crateLocationX, crateLocationY],"crate",crateURL);
+						my.onDot([crateLocationX, crateLocationY],"ondot",ondotURL);
 						my.game.coordinates[currentLocationX+1][currentLocationY].$div.find('img').first().remove();
 						counter++;
 					} else if (my.game.coordinates[currentLocationX+1][currentLocationY].tile == "dots") {
